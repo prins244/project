@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="font-inter bg-light text-gray-800 scroll-smooth">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white text-shadow">MyPortfolio</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-blue-200 transition-colors">Home</a>
+                <a href="#about" class="text-white hover:text-blue-200 transition-colors">About</a>
+                <a href="#media" class="text-white hover:text-blue-200 transition-colors">Media</a>
+                <a href="#projects" class="text-white hover:text-blue-200 transition-colors">Projects</a>
+                <a href="#contact" class="text-white hover:text-blue-200 transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuToggle" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-dark/95 absolute w-full top-full left-0 py-4">
+            <div class="flex flex-col space-y-4 px-8">
+                <a href="#home" class="text-white hover:text-blue-200 transition-colors">Home</a>
+                <a href="#about" class="text-white hover:text-blue-200 transition-colors">About</a>
+                <a href="#media" class="text-white hover:text-blue-200 transition-colors">Media</a>
+                <a href="#projects" class="text-white hover:text-blue-200 transition-colors">Projects</a>
+                <a href="#contact" class="text-white hover:text-blue-200 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen bg-gradient-to-r from-primary/90 to-blue-700 flex items-center pt-16">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="w-full md:w-1/2 text-center md:text-left fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-shadow">
+                    Hello, I'm <br>
+                    <span class="text-yellow-300">PRINCES</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-white/90 max-w-lg mx-auto md:mx-0">
+                    A passionate creator, developer, and designer building beautiful digital experiences. Welcome to my personal space on the web.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#about" class="bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition shadow-lg">Learn More</a>
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/20 transition">Get In Touch</a>
+                </div>
+                <div class="mt-10 flex gap-5 justify-center md:justify-start">
+                    <a href="#" class="text-white text-2xl hover:text-yellow-300 transition"><i class="fa fa-github"></i></a>
+                    <a href="#" class="text-white text-2xl hover:text-yellow-300 transition"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="text-white text-2xl hover:text-yellow-300 transition"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="text-white text-2xl hover:text-yellow-300 transition"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 mt-12 md:mt-0 fade-in delay-2">
+                <div class="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl">
+                    <!-- Replace with your own image -->
+                    <img src="ses/S.jpg" alt="Profile Picture" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark">About Me</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="w-full md:w-1/2 fade-in delay-1">
+                    <h3 class="text-2xl font-semibold text-dark mb-4">Who I Am</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        I'm a creative professional with a passion for building things that live on the internet. With years of experience in design and development, I love turning ideas into reality. I believe in clean code, thoughtful design, and continuous learning.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        When I'm not working, you can find me exploring new places, capturing moments through photography, or creating content that inspires others.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <span class="font-semibold">Name:</span> PRINCES BARSALOTE
+                        </div>
+                        <div>
+                            <span class="font-semibold">Email:</span> your.email@example.com
+                        </div>
+                        <div>
+                            <span class="font-semibold">Location:</span> SULOP DAVAO DEL SUR
+                        </div>
+                        <div>
+                            <span class="font-semibold">From:</span> Digos, Philippines
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 fade-in delay-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                            <h4 class="text-xl font-semibold text-primary">Design</h4>
+                            <p class="text-gray-600 mt-2">Creating beautiful, user-friendly interfaces that work seamlessly across all devices.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                            <h4 class="text-xl font-semibold text-primary">Development</h4>
+                            <p class="text-gray-600 mt-2">Building fast, responsive, and secure websites and applications using modern technologies.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                            <h4 class="text-xl font-semibold text-primary">Photography</h4>
+                            <p class="text-gray-600 mt-2">Capturing moments and telling stories through images, both digital and film.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                            <h4 class="text-xl font-semibold text-primary">Content</h4>
+                            <p class="text-gray-600 mt-2">Producing videos and articles to share knowledge and experiences with others.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section (Image & Video) -->
+    <section id="media" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark">My Media</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Here are some of my favorite photos and videos that showcase my work and personal interests.</p>
+            </div>
+
+            <!-- Images Gallery -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center fade-in">Photography</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Image 1 -->
+                    <div class="rounded-xl overflow-hidden shadow-md card-hover fade-in delay-1">
+                        <img src="ses/A.jpg" alt="Nature Shot" class="w-full h-64 object-cover">
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="rounded-xl overflow-hidden shadow-md card-hover fade-in delay-2">
+                        <img src="ses/P.jpg" alt="City View" class="w-full h-64 object-cover">
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="rounded-xl overflow-hidden shadow-md card-hover fade-in delay-3">
+                        <img src="ses/F.jfif" alt="Portrait" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-center fade-in">Featured Video</h3>
+                <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-xl fade-in delay-2">
+                    <!-- Replace with your own video file -->
+                    <video controls poster="https://picsum.photos/id/1068/1200/700" class="w-full h-auto">
+                        <source src="ses/H.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="p-6 bg-white">
+                        <h4 class="text-xl font-semibold">My Journey & Work</h4>
+                        <p class="text-gray-600 mt-2">This short video gives a glimpse into my creative process, projects, and what inspires me every day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark">My Projects</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover fade-in delay-1">
+                    <img src="ses/J.webp" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Web Application</h3>
+                        <p class="text-gray-600 mt-2">A full-stack application built to manage daily tasks and improve productivity.</p>
+                        <a href="#" class="inline-block mt-4 text-primary font-medium hover:underline">View Details →</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover fade-in delay-2">
+                    <img src="ses/K.webp" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Design Portfolio</h3>
+                        <p class="text-gray-600 mt-2">A collection of UI/UX designs and branding work for various clients.</p>
+                        <a href="#" class="inline-block mt-4 text-primary font-medium hover:underline">View Details →</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover fade-in delay-3">
+                    <img src="ses/R.webp" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Content Series</h3>
+                        <p class="text-gray-600 mt-2">Educational videos and articles about technology and personal growth.</p>
+                        <a href="#" class="inline-block mt-4 text-primary font-medium hover:underline">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark">Get In Touch</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Have a question or want to work together? Feel free to send me a message!</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg fade-in delay-2">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition shadow-md">Send Message</button>
+                </form>
+                <div id="formStatus" class="mt-4 text-center hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">MyPortfolio</h3>
+            <p class="text-gray-300 max-w-xl mx-auto">Building beautiful experiences and sharing my journey with the world.</p>
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa fa-github"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fa fa-envelope"></i></a>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-gray-400 text-sm">
+                © 2026 Your Name. PRINCES BARSALOTE.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'shadow-lg');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-lg');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuToggle.innerHTML = mobileMenu.classList.contains('hidden') 
+                ? '<i class="fa fa-bars"></i>' 
+                : '<i class="fa fa-times"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+            });
+        });
+
+        // Form submission handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple success message
+            formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+            formStatus.classList.remove('hidden', 'text-red-500');
+            formStatus.classList.add('text-green-500');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
